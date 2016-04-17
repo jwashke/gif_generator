@@ -1,1 +1,21 @@
 <h1 class="welcome">Welcome, <%= @user.username %></h1>
+
+<% @user.my_categories.each do |category| %>
+
+  <h3><%= category.search %></h3>
+  <div class="column-cards">
+  <% @user.gifs_by_category(category).each do |gif| %>
+    <div class = "card gif-card col-md-4">
+      <div class="card-img-top">
+        <img src="<%= gif.image_path %>">
+      </div>
+      <div class="card-block">
+        <div class="btn btn-primary">
+          <%= link_to "Unfavorite", favorite_path(gif: gif.id), method: :delete %>
+        </div>
+    </div>
+  </div>
+  <% end %>
+</div>
+<br>
+<% end %>

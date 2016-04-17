@@ -5,8 +5,9 @@
           <img src="<%= gif.image_path %>">
         </div>
         <div class="card-block">
-          <a href="#" class="btn btn-primary">Favorite</a>
-        </div>
+          <div class= "btn btn-primary">
+            <%= link_to "Favorite", favorites_path(gif_id: gif.id), method: :post %>
+          </div>
       </div>
   <% end %>
 </div>
