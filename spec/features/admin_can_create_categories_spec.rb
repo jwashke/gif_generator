@@ -1,9 +1,14 @@
 require 'rails_helper'
 
 RSpec.feature "Admin can create categories" do
-  context "As an admin" do
-    scenario "With valid search terms" do
+  context "as an admin" do
+    scenario "with valid search terms" do
       gif_image_path = "www.fake_url.com"
+      admin = User.create(username: "admin",
+                        password: "password",
+                        role: 1)
+
+      ApplicationController.any_instance.stubs(:current_user).returns(admin)
       visit new_admin_category_path
 
       fill_in "Search", with: "Cat"
@@ -14,7 +19,12 @@ RSpec.feature "Admin can create categories" do
       end
     end
 
-    scenario "With invalid search terms" do
+    scenario "with invalid search terms" do
+      admin = User.create(username: "admin",
+                        password: "password",
+                        role: 1)
+
+      ApplicationController.any_instance.stubs(:current_user).returns(admin)
       visit new_admin_category_path
 
       click_on "Generate Gif"
@@ -25,10 +35,17 @@ RSpec.feature "Admin can create categories" do
     end
   end
 
-  context "As a user" do
+  context "as a non admin user" do
     scenario "cannot access new category page" do
+      user = User.create(username: "user",
+                        password: "password")
+
+      ApplicationController.any_instance.stubs(:current_user).returns(user)
       visit new_admin_category_path
 
+      within ".dialog" do
+        expect(page).to have_content("The page you were looking for doesn't exist.")
+      end
     end
   end
 end
