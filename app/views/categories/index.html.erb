@@ -1,0 +1,7 @@
+<div class="col-md-12 categories">
+  <% @categories.each do |category| %>
+    <div class="row">
+      <%= link_to category.search, category %>
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,13 @@
+.flash {
+  text-align: center;
+}
+
+.flash-notice {
+  @extend .flash;
+  color: green;
+}
+
+.flash-error {
+  @extend .flash;
+  color: red;
+}
