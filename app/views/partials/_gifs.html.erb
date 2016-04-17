@@ -1,0 +1,10 @@
+<div class="gifs card-columns">
+  <% @category.gifs.each do |gif| %>
+      <div class = "card gif-card">
+        <img src="<%= gif.image_path %>" class="gif card-img-top">
+        <div class="card-block">
+          <a href="#" class="btn btn-primary">Favorite</a>
+        </div>
+      </div>
+  <% end %>
+</div>
