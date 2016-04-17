@@ -1,0 +1,9 @@
+<div class="col-md-12 categories">
+  <% @categories.each do |category| %>
+    <div class="row">
+      <%= link_to category.search, category %><br>
+      <%= link_to "Delete", admin_category_path(category), method: :delete %>
+    </div>
+  <% end %>
+  <%= link_to "Create New Category", new_admin_category_path %>
+</div>

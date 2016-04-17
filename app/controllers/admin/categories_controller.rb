@@ -13,6 +13,15 @@ class Admin::CategoriesController < Admin::BaseController
     end
   end
 
+  def index
+    @categories = Category.all
+  end
+
+  def destroy
+    Category.destroy(params[:search])
+    redirect_to admin_categories_path
+  end
+
   private
 
   def category_params

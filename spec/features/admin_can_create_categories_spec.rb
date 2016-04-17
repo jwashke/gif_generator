@@ -12,7 +12,7 @@ RSpec.feature "Admin can create categories" do
       visit new_admin_category_path
 
       fill_in "Search", with: "Cat"
-      click_on "Generate Gif"
+      click_on "Create Category"
 
       within ".category-name" do
         expect(page).to have_content("Cat")
@@ -27,7 +27,7 @@ RSpec.feature "Admin can create categories" do
       ApplicationController.any_instance.stubs(:current_user).returns(admin)
       visit new_admin_category_path
 
-      click_on "Generate Gif"
+      click_on "Create Category"
 
       within ".flash-error" do
         expect(page).to have_content("Search can't be blank")

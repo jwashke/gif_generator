@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root to: 'home#index'
   resources :users, only: [:new, :create, :show], param: :username
   namespace :admin do
-    resources :categories, only: [:new, :create], param: :search
+    resources :categories, only: [:new, :create, :index, :destroy], param: :search
   end
 
   resources :categories, only: [:show, :index], param: :search
