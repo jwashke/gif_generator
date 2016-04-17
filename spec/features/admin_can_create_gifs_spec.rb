@@ -14,9 +14,8 @@ RSpec.feature "Admin can create gifs" do
 
       click_link "Generate Gif"
 
-      within ".gifs" do
-        expect(page).to have_css("img[src=\"#{gif_image_path}\"]")
-      end
+      expect(page).to have_content("Gif successfully created!")
+
     end
   end
 end

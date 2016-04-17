@@ -1,3 +1,4 @@
 <h1 class="category-name"><%= @category.search %></h1>
 <%= link_to "Generate Gif", admin_gifs_path(category: @category), method: :post %>
+
   <%= render partial: "partials/gifs" %>

@@ -12,9 +12,7 @@ RSpec.feature "Admin can delete categories" do
       visit admin_categories_path
 
       click_link "Delete"
-      within ".categories" do
-        expect(page).not_to have_content("test")
-      end
+      expect(page).not_to have_content("test")
     end
   end
 end
