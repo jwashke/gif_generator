@@ -1,0 +1,8 @@
+<h1>Create a new Gif</h1>
+
+<%= form_for([:admin, @category]) do |f| %>
+  <%= f.label :search %>
+  <%= f.text_field :search %>
+
+  <%= f.submit "Generate Gif" %>
+<% end %>
